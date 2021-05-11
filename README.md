@@ -51,16 +51,28 @@ Designa-se de template um ficheiro HTML retornado  ao browser por uma função v
 1. na pasta `website` crie a pasta `templates`, e dentro dessa a pasta `\website`, ficando com o caminho `lab6\website\templates\website`
 1. Crie, na pasta `website\templates\website`, o ficheiro `base.html`, usando o snippet HTML5 sugerido pelo Pycharm. 
 1. integre no elemento `head` um link para o bootstrap, `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">`. 
-2. O layout será inspirado no Bootstrap [jumbotron](https://www.w3schools.com/bootstrap4/bootstrap_jumbotron.asp) e detalha-se de seguida
+2. O layout será inspirado no Bootstrap [jumbotron](https://www.w3schools.com/bootstrap4/bootstrap_jumbotron.asp). Como no head temos especificado um link para a stylesheet do Bootstrap, iremos utilizar várias das suas classes que permitem formatar elementos.
  
+O template base.html que construiremos a seguir terá a seguinte estrutura:
+```html
+<body>
+    <header>  </header>
+    <article>
+        <main>   </main>
+        <aside>  </aside>
+    </article>
+    <footer> </footer>
+</body>
+```
+
 #### header
-1. No body crie o elemento `<header class="jumbotron text-center">` que evidenciará o cabeçalho do website. Dentro do elemento header deverá ter aninhado três elementos:
+1. No elemento `<body>` crie aninhado o elemento `<header class="jumbotron text-center">` com as classes Bootstrap jumbotron que evidenciará o cabeçalho do website, e text-center que centrará o texto. Dentro do elemento header deverá ter aninhado três elementos:
     1. um elemento `<h1>`com o título do website
     1. um elemento `<p>` com uma frase curta da mesma largura do título
     2. um elemento `<nav>` três hiperlinks `<a>` para três páginas a criar, cada com a classe `class="btn btn-info"` que transforma o hiperlink num botão (ficando por exemplo `<a href="" class="btn btn-info">Home</a>)`
 
 #### main
-1. No body crie uma secção `<article class="container">`. O article irá ter dentro dois elementos, o `<main>` e o `<aside>`.
+1. Por baixo do `<header>`, crie uma secção `<article class="container">`, com a classe Bootstrap. O article irá ter dentro dois elementos, o `<main>` e o `<aside>`.
 1. O elemento `main` tem duas classes bootstrap e um bloco que será estendido com os conteúdos das páginas do wesite. 
 ```html
 <main class="col-sm-6"> 
@@ -72,10 +84,10 @@ Designa-se de template um ficheiro HTML retornado  ao browser por uma função v
 1. Dentro deste elemento irá inserir um elemento `<img>`, sendo os detalhes dados na secção seguinte.
 
 #### footer
-1. crie um elemento `<footer></footer>` com um texto simples de rodapé. 
+1. A seguir ao `<header>`crie um elemento `<footer></footer>`, com um texto simples de rodapé. 
 
 ### 3.2 Templates Filhos
-Crie três templates HTML que estendam o layout base.html. Estes terão os conteúdos que irão aparecer no elemento main. Deverão ser de texto, duas ou tres frases basta.
+1. Crie três templates HTML que estendam o layout base.html segundo a seguinte sintaxe:
 
 ```html
 {% extends 'website/base.html' %}
@@ -85,9 +97,12 @@ Crie três templates HTML que estendam o layout base.html. Estes terão os conte
     <p>texto texto texto texto texto texto texto </p>
 {% endblock %}
 ```
+1. Estes terão os conteúdos que irão aparecer no elemento main. 
+2. A única coisa que mudará entre os três elementos será o conteúdo do block main.
+3. Especifica para cada um deles um título texto, duas ou tres frases basta.
 
 ## 4. Static 🖼️
-Os ficheiros estáticos são imagens, CSS e scripts JavaScript. Estes organizam-se em pastas especificas.
+A pasta static contém ficheiros "estáticos", i.e., imagens, ficheiros CSS e scripts JavaScript. Estes organizam-se em pastas especificas.
 1. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`. Esta pasta conterá uma pasta para as imagens e outra para o CSS. 
 
 ### 4.1 CSS

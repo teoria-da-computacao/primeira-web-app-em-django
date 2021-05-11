@@ -1,6 +1,6 @@
 **UNIVERSIDADE LUSÓFONA DE HUMANIDADES E TECNOLOGIAS**
 
-# Programação Web - Laboratório 6: django web app 🔥
+# Programação Web - Laboratório 6: primeira web app django 🔥
 
 **OBJECTIVO**: 
 * Neste laboratório criará uma primeira aplicação django simples, para se familiarizar com os conceitos de urls, views, templates e sua linguagem. 

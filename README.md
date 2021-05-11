@@ -208,10 +208,10 @@ Como se vê, este módulo importa o módulo views que se encontra na mesma pasta
 <link rel="stylesheet" href="{% static 'website/css/base.css' %}">
 ```
 
-# 7. Ready, go! 🏁
+## 8. Ready... GO! 🏁
 1. Lance a aplicação com o comando `python manage.py runserver` e verifique que consegue visualizar corretamente a aplicação que fez. 
 
-# 8. GitHub e Heroku ⛅
+# 9. GitHub e Heroku ⛅
 Execute os seguintes comandos para pôr o seu projeto e app a correr na cloud!
 1. considera-se que tem o Heroku instalado. Na consola, faça login `heroku login`
 2. Instale o servidor gunicorn	`pipenv install gunicorn`

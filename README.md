@@ -55,13 +55,15 @@ Designa-se de template um ficheiro HTML retornado  ao browser por uma função v
  
 O template base.html que construiremos a seguir terá a seguinte estrutura:
 ```html
+<!-- base.html -->
+...
 <body>
-    <header>  </header>
+    <header>...</header>
     <article>
-        <main>   </main>
-        <aside>  </aside>
+        <main>...</main>
+        <aside>...</aside>
     </article>
-    <footer> </footer>
+    <footer>...</footer>
 </body>
 ```
 
@@ -75,6 +77,8 @@ O template base.html que construiremos a seguir terá a seguinte estrutura:
 1. Por baixo do `<header>`, crie uma secção `<article class="container">`, com a classe Bootstrap. O article irá ter dentro dois elementos, o `<main>` e o `<aside>`.
 1. O elemento `main` tem duas classes bootstrap e um bloco que será estendido com os conteúdos das páginas do wesite. 
 ```html
+<!-- base.html -->
+...
 <main class="col-sm-6"> 
 	{% block main %}
 	{% endblock main %}
@@ -90,6 +94,8 @@ O template base.html que construiremos a seguir terá a seguinte estrutura:
 1. Crie três templates HTML que estendam o layout base.html segundo a seguinte sintaxe:
 
 ```html
+<!-- home.html -->
+
 {% extends 'website/base.html' %}
 
 {% block main %}
@@ -108,7 +114,10 @@ A pasta static contém ficheiros "estáticos", i.e., imagens, ficheiros CSS e sc
 ### 4.1 CSS
 1. Crie dentro de `website\static\website` a pasta `css` (ficando com o caminho `lab6\website\static\website\css` 😱), incluindo nesta o ficheiro `base.css`.
 1. configure neste a estilização do elemento footer, por forma a que fique em baixo. Poderá configurar desta forma:  
-```html
+
+```css
+/* base.css */
+
 footer {
    position: fixed;
    bottom: 30px;
@@ -117,7 +126,9 @@ footer {
 }
 ```
 1. configure o elemento article de forma a ficar centrado e com largura máxima de 800px
-```html
+```css
+/* base.css */
+
 body > article {
     max-width: 800px;
     margin: auto;
@@ -172,11 +183,15 @@ Como se vê, este módulo importa o módulo views que se encontra na mesma pasta
 2. Para a imagem `<img>`, inclua antes desta a etiqueta template `{% load static %}`, para construir o URL para o path relativo. Na referencia, use a etiqueta template `{% static 'website\images\image.png' %}`, ficando da seguinte forma:
 
 ```html
+<!-- base.html -->
+...
 {% load static %}
 <img src="{% static 'website\images\image.png' %}">
 ```
-3. para o ficheiro base.css, devemos também incluir um link, usando o path relativo para a pasta static:
+3. para o ficheiro base.css, devemos também incluir no ficheiro `base.html` um link, usando o path relativo para a pasta static:
 ```html
+<!-- base.html -->
+...
 {% load static %}
 <link rel="stylesheet" href="{% static 'website/css/base.css' %}">
 ```

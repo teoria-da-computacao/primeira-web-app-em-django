@@ -108,8 +108,19 @@ O template base.html que construiremos a seguir terá a seguinte estrutura:
 3. Especifica para cada um deles um título texto, duas ou tres frases basta.
 
 ## 4. Static 🖼️
-A pasta static contém ficheiros "estáticos", i.e., imagens, ficheiros CSS e scripts JavaScript. Estes organizam-se em pastas especificas.
-1. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`. Esta pasta conterá uma pasta para as imagens e outra para o CSS. 
+A pasta static contém ficheiros "estáticos", i.e., imagens, ficheiros CSS e scripts JavaScript. Estes organizam-se em pastas especificas. Usaremos a seguinte estrutura para guardar uma imagem e um ficheiro css:
+```dos
+lab6
+└───website
+    └───static
+        └───website
+            ├───css
+            │       base.css
+            │
+            └───images
+                    imagem.png	    
+```
+1. crie a estrutura acima. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`. Esta pasta deverá conter uma pasta `css` e outra `ìmages`. 
 
 ### 4.1 CSS
 1. Crie dentro de `website/tatic/website` a pasta `css` (ficando com o caminho `lab6/website/static/website/css` 😱), incluindo nesta o ficheiro `base.css`.

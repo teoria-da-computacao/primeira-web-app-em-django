@@ -72,7 +72,7 @@ O template base.html que construiremos a seguir terá a seguinte estrutura:
 1. No elemento `<body>` crie aninhado o elemento `<header class="jumbotron text-center">` com as classes Bootstrap jumbotron que evidenciará o cabeçalho do website, e text-center que centrará o texto. Dentro do elemento header deverá ter aninhado três elementos:
     1. um elemento `<h1>`com o título do website
     1. um elemento `<p>` com uma frase curta da mesma largura do título
-    2. um elemento `<nav>` três hiperlinks `<a>` para três páginas a criar, cada com a classe `class="btn btn-info"` que transforma o hiperlink num botão (ficando por exemplo `<a href="" class="btn btn-info">Home</a>)`
+    2. um elemento `<nav>` três hiperlinks `<a>` para três páginas que o seu site irá ter, cada com a classe `class="btn btn-info"` que transforma o hiperlink num botão (ficando por exemplo `<a href="" class="btn btn-info">Home</a>)`. A forma de incluir o link em `href` será especificada na secção 7.
 
 #### main
 1. Por baixo do `<header>`, crie uma secção `<article class="container">`, com a classe Bootstrap. O article irá ter dentro dois elementos, o `<main>` e o `<aside>`.
@@ -120,10 +120,12 @@ lab6
             └───images
                     imagem.png	    
 ```
+É extensa, mas previne problemas de ambiguidade.
+
 1. crie a estrutura acima. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`. Esta pasta deverá conter uma pasta `css` e outra `ìmages`. 
 
 ### 4.1 CSS
-1. Crie dentro de `website/tatic/website` a pasta `css` (ficando com o caminho `lab6/website/static/website/css` 😱), incluindo nesta o ficheiro `base.css`.
+1. Crie dentro da pasta `css` o ficheiro `base.css` com algumas configurações.
 1. configure neste a estilização do elemento footer, por forma a que fique em baixo. Poderá configurar desta forma:  
 
 ```css
@@ -147,8 +149,7 @@ body > article {
 ```
 
 ### 4.2 images
-1. Crie em `website/static/website` a pasta `images` (ficando com o caminho `lab6/website/static/website/images` 😱).
-2. Inclua uma imagem a seu gosto, com uma largura máxima de 200px, que irá ficar no elemento aside acima definido.
+1. Insira em `website/static/website/images` uma imagem a seu gosto, com uma largura máxima de 200px, que irá ficar no elemento `aside` acima definido. A sua referência no `src`é especificada na secção 7.
 
 ## 5. Views ⚙️
 As views são funções responsáveis por responder ao pedido (request) de um recurso (URL), retornando o recurso pedido, um template HTML eventualmente renderizado com dados e customizado. Fazem assim a interligação entre os dados e os templates, respondendo aos pedidos encaminhados via urls.

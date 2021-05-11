@@ -9,7 +9,7 @@
 
 **RECOMENDAÇÕES**: 
 * leia uma vez o enunciado. É extenso, mas detalha todos os passos e fornece o código necessário, sendo rápida a sua realização.
-* Instale e use o Pycharm para editar o código de forma fácil.
+* Instale e use o Pycharm para editar o código de forma fácil. O Pycharm sinaliza os erros. Veja com atenção eventuais mensagens. 
 * quando necessário, guie-se pelo projeto que fizemos na aula teórica, que  está disponível no [repo GitHub](https://github.com/ULHT-PW-2020-21/pw-django-01). 
 * se tiver dúvidas, consulte os [slides](https://secure.grupolusofona.pt/ulht/moodle/pluginfile.php/800079/course/section/398731/pw-03-django-01.pptx) e a documentação do [djangoproject](https://www.djangoproject.com/)
 

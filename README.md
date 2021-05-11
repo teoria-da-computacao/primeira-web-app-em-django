@@ -30,11 +30,11 @@ Vamos nesta secção criar um projeto e aplicação django.
 
 ### 1.2. Configure a aplicação
 1. abra a pasta com o Pycharm
-1. em config\settings.py registe a aplicação na lista INSTALLED_APPS, colocando no fim `'website'`
-1. em config\urls.py registe a rota para a nova aplicação website, inserindo na lista urlpatterns o caminho `path('', include('website.urls))` para a sua aplicação, ficando:
+1. em config/settings.py registe a aplicação na lista INSTALLED_APPS, colocando no fim `'website'`
+1. em config/urls.py registe a rota para a nova aplicação website, inserindo na lista urlpatterns o caminho `path('', include('website.urls))` para a sua aplicação, ficando:
 
 ```python
-# config\urls.py
+# config/urls.py
 
 from django.contrib import admin
 from django.urls import path, include
@@ -49,8 +49,8 @@ urlpatterns = [
 Designa-se de template um ficheiro HTML retornado  ao browser por uma função view específica, eventualmente renderizado com conteúdos. Começamos assim por construir os conteúdos que teremos para retornar a um cliente. Vamos criar um template base\pai que terá o layout, os restantes consistindo em templates "filhos" que herdam e estendem a base, inserindo conteúdos neste.
 
 ### 3.1 Template base com layout
-1. na pasta `website` crie a pasta `templates`, e dentro dessa a pasta `\website`, ficando com o caminho `lab6\website\templates\website`
-1. Crie, na pasta `website\templates\website`, o ficheiro `base.html`, usando o snippet HTML5 sugerido pelo Pycharm. 
+1. na pasta `website` crie a pasta `templates`, e dentro dessa a pasta `/website`, ficando com o caminho `lab6/website/templates/website`
+1. Crie, na pasta `website/templates/website`, o ficheiro `base.html`, usando o snippet HTML5 sugerido pelo Pycharm. 
 1. integre no elemento `head` um link para o bootstrap, `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">`. 
 2. O layout será inspirado no Bootstrap [jumbotron](https://www.w3schools.com/bootstrap4/bootstrap_jumbotron.asp). Como no head temos especificado um link para a stylesheet do Bootstrap, iremos utilizar várias das suas classes que permitem formatar elementos.
  
@@ -112,7 +112,7 @@ A pasta static contém ficheiros "estáticos", i.e., imagens, ficheiros CSS e sc
 1. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`. Esta pasta conterá uma pasta para as imagens e outra para o CSS. 
 
 ### 4.1 CSS
-1. Crie dentro de `website\static\website` a pasta `css` (ficando com o caminho `lab6\website\static\website\css` 😱), incluindo nesta o ficheiro `base.css`.
+1. Crie dentro de `website/tatic/website` a pasta `css` (ficando com o caminho `lab6/website/static/website/css` 😱), incluindo nesta o ficheiro `base.css`.
 1. configure neste a estilização do elemento footer, por forma a que fique em baixo. Poderá configurar desta forma:  
 
 ```css
@@ -136,7 +136,7 @@ body > article {
 ```
 
 ### 4.2 images
-1. Crie em `website\static\website` a pasta `images` (ficando com o caminho `lab6\website\static\website\images` 😱).
+1. Crie em `website/static/website` a pasta `images` (ficando com o caminho `lab6/website/static/website/images` 😱).
 2. Inclua uma imagem a seu gosto, com uma largura máxima de 200px, que irá ficar no elemento aside acima definido.
 
 ## 5. Views ⚙️
@@ -150,7 +150,7 @@ As views são funções responsáveis por responder ao pedido (request) de um re
 from django.shortcuts import render
 
 def home_page_view(request):
-	return render(request, 'website\home.html')
+	return render(request, 'website/home.html')
 ```
 2. experimente passar como contexto a data, recorrendo ao módulo datetime (de forma semelhante à feita no projeto da aula, veja no [repo GitHub](https://github.com/ULHT-PW-2020-21/pw-django-01) no módulo views.py), de forma a que esta apareça na pagina `home`.
 3. brinque e explore a linguagem de template, com decisores if e ciclos for (veja no views do projeto, e consulte os [slides](https://secure.grupolusofona.pt/ulht/moodle/pluginfile.php/800079/course/section/398731/pw-03-django-01.pptx)). 
@@ -159,7 +159,7 @@ def home_page_view(request):
 ## 6. URLS ✉️
 Existem dois ficheiros ficheiros urls. O urls.py da pasta config, responsável por encaminhar um pedido de um recurso à respetiva aplicação (no nosso caso apenas temos uma aplicação, website). E também deverá existir um módulo urls.py na pasta website. Este irá mapear, para um determinado pedido (*request*) de recurso, uma função do ficheiro views.py que tratará desse pedido, preparando e devolvendo o recurso pedido num template HMTL.
 
-1. o config\urls.py já está configurado
+1. o config/urls.py já está configurado
 
 3. Na pasta website crie o ficheiro `urls.py`. Exemplifica-se em baixo uma rota na lista urlpatterns, devendo incluir uma rota para cada uma das três views anteriormente criadas. 
 
@@ -179,14 +179,14 @@ Como se vê, este módulo importa o módulo views que se encontra na mesma pasta
 
 
 ## 7. Hiperlinks 🔗
-1. falta especificar o conteúdo dos hiperlinks do menu. Insira `href="{% url 'website:home' %}"`, onde `website` é o nome dado à app (em `app_name`), e `home` é o nome do path especificado em website\urls.py. 
-2. Para a imagem `<img>` no ficheiro `base.html`, inclua antes desta a etiqueta template `{% load static %}`, para construir o URL para o path relativo. Na especificação da `src`, use a etiqueta template `{% static 'website\images\image.png' %}`, ficando da seguinte forma:
+1. falta especificar o conteúdo dos hiperlinks do menu. Insira `href="{% url 'website:home' %}"`, onde `website` é o nome dado à app (em `app_name`), e `home` é o nome do path especificado em website/urls.py. 
+2. Para a imagem `<img>` no ficheiro `base.html`, inclua antes desta a etiqueta template `{% load static %}`, para construir o URL para o path relativo. Na especificação da `src`, use a etiqueta template `{% static 'website/images/image.png' %}`, ficando da seguinte forma:
 
 ```html
 <!-- base.html -->
 ...
 {% load static %}
-<img src="{% static 'website\images\image.png' %}">
+<img src="{% static 'website/images/image.png' %}">
 ```
 3. para o ficheiro base.css, devemos também incluir no ficheiro `base.html` um link, usando o path relativo para a pasta static:
 ```html
@@ -203,7 +203,7 @@ Como se vê, este módulo importa o módulo views que se encontra na mesma pasta
 Execute os seguintes comandos para pôr o seu projeto e app a correr na cloud!
 1. considera-se que tem o Heroku instalado. Na consola, faça login `heroku login`
 2. Instale o servidor gunicorn	`pipenv install gunicorn`
-3. Crie na pasta lab6 o ficheiro `Procfile` com o seguinte conteúdo (que especifica que estamos a usar Gunicorn): `web: gunicorn config.wsgi --log-file -`
+3. Crie na pasta lab6 o ficheiro `Procfile` (sem qualquer extensão!) com o seguinte conteúdo (que especifica que estamos a usar Gunicorn): `web: gunicorn config.wsgi --log-file -`
 4. em config/settings.py, pôr: `ALLOWED_HOSTS = [‘*’]` 
 5. fazer push para o github:
 	```

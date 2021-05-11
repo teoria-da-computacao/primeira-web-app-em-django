@@ -1,14 +1,16 @@
 **UNIVERSIDADE LUSÓFONA DE HUMANIDADES E TECNOLOGIAS**
 
-# Programação Web - Laboratório 6: Aplicação django
+# Programação Web - Laboratório 6: django web app 🔥
 
 **OBJECTIVO**: 
-* Neste laboratório criará uma aplicação django simples, na linha do que foi feito na aula teórica (disponível no [repo GitHub](https://github.com/ULHT-PW-2020-21/pw-django-01)). 
+* Neste laboratório criará uma primeira aplicação django simples, para se familiarizar com os conceitos de urls, views, templates e sua linguagem. 
 * O tópico e conteúdos do website podem ser extraídos se quiser do seu projeto ou lab5, mas não precisam ser muitos conteúdos. A ideia é trabalhar a estrutura e dinamicidade. 
 * Exercitará a edição dos módulos urls.py, views.py e a criação de templates HTML com linguagem template.
 
-**PRÉ-REQUISITOS**: Instale e use o Pycharm para editar o código de forma fácil.
-
+**RECOMENDAÇÕES**: 
+* Instale e use o Pycharm para editar o código de forma fácil.
+* * quando necessário, guie-se pelo projeto que fizemos na aula teórica, que  está disponível no [repo GitHub](https://github.com/ULHT-PW-2020-21/pw-django-01). 
+* se tiver dúvidas, consulte os [slides](https://secure.grupolusofona.pt/ulht/moodle/pluginfile.php/800079/course/section/398731/pw-03-django-01.pptx) e a documentação do [djangoproject](https://www.djangoproject.com/)
 
 ## 1. Crie um projeto e app django
 1. Abra a linha de comandos (PowerShell ou cmd)
@@ -44,37 +46,36 @@ urlpatterns = [
 1. na pasta `website` crie a pasta `templates`, e dentro dessa a pasta `\website`, ficando com o caminho `lab6\website\templates\website`
 1. Crie, na pasta `website\templates\website`, o ficheiro `base.html`, usando o snippet HTML5 sugerido pelo Pycharm. 
 1. integre no elemento `head` um link para o bootstrap, `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">`. 
+2. O layout será inspirado no Bootstrap [jumbotron](https://www.w3schools.com/bootstrap4/bootstrap_jumbotron.asp) e detalha-se de seguida
  
 #### header
-1. No body crie uma primeira secção header com a propriedade `class="jumbotron text-center"`. No header deverá ter três elementos:
+1. No body crie o elemento `<header class="jumbotron text-center">` que evidenciará o cabeçalho do website. Dentro do elemento header deverá ter aninhado três elementos:
     1. um elemento `<h1>`com o título do website
     1. um elemento `<p>` com uma frase curta da mesma largura do título
-    2. um elemento `<nav>` três hiperlinks `<a>` para três páginas a criar, cada com a classe `class="btn btn-info"` (ficando por exemplo `<a href="" class="btn btn-info">Home</a>)`
+    2. um elemento `<nav>` três hiperlinks `<a>` para três páginas a criar, cada com a classe `class="btn btn-info"` que transforma o hiperlink num botão (ficando por exemplo `<a href="" class="btn btn-info">Home</a>)`
 
 #### main
-1. No body crie uma secção `<article>` onde especifica que a largura máxima é de 800px. O article irá ter dentro dois elementos, o `<main>` e o `<aside>`.
-1. Dentro do main crie o elemento `<main class="container"> </main>`. 
-6. Dentro deste elemento crie um `{% block main %}`, que será estendido com os conteúdos das páginas do wesite.
-
-1. No body crie uma secção `<main>` com a classe container `<main class="container"> </main>`. 
-6. Dentro deste elemento crie um `{% block main %}`, que será estendido com os conteúdos das páginas do wesite.
-
-#### aside
-1. No body crie uma secção `<aside>` com a classe container `<aside class="container"> </main>`. 
-6. Dentro deste elemento irá inserir um elemento `<img>`, sendo os detalhes dados na secção seguinte.
-
+1. No body crie uma secção `<article class="container">` onde especifica que a largura máxima é de 800px e está centrado. O article irá ter dentro dois elementos, o `<main>` e o `<aside>`.
+1. O elemento `main` tem duas classes bootstrap e um bloco que será estendido com os conteúdos das páginas do wesite. 
+```html
+<main class="col-sm-6"> 
+	{% block main %}
+	{% endblock main %}
+</main>
+```
+1. O elemento `<aside>` com a classe bootstrap que ocupará 6 colunas de largura ([responsive grid](https://www.w3schools.com/css/css_rwd_grid.asp)), `<aside class="col-sm-6">`. 
+1. Dentro deste elemento irá inserir um elemento `<img>`, sendo os detalhes dados na secção seguinte.
 
 #### footer
-1. crie um elemento `<footer></footer>` com um texto simples. 
-
-### 3.2 Conteúdos para main
+1. crie um elemento `<footer></footer>` com um texto simples de rodapé. 
 
 
+## 4. Static
+1. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`.
 
-## 4. CSS
-1. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`, que conterá a pasta `css` ficando com o caminho `lab6\website\static\website\css` 😱
-1. Crie, na pasta `css`, o ficheiro `base.css`.
-2. configure neste a estilização do elemento footer, por forma a que fique em baixo. Poderá usar por exemplo as propriedades  
+### 4.1 CSS
+1. Crie a pasta `css` (ficando com o caminho `lab6\website\static\website\css` 😱), incluindo nesta o ficheiro `base.css`.
+1. configure neste a estilização do elemento footer, por forma a que fique em baixo. Poderá usar por exemplo as propriedades  
 ```html
 footer {
    position: fixed;
@@ -83,9 +84,11 @@ footer {
    text-align: center;
 }
 ```
-3. configure outra característica a seu gosto.
+1. configure outra característica a seu gosto.
 
-
+### 4.2 images
+1. Crie a pasta `images` (ficando com o caminho `lab6\website\static\website\images` 😱).
+2. Inclua uma imagem a seu gosto, que irá ficar no elemento aside acima identificado.
 
 ### 4. Criação de páginas
 3. no ficheiro `views.py` crie uma nova função view `home_page_view` que renderize a nova página.

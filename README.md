@@ -129,7 +129,8 @@ body > article {
 2. Inclua uma imagem a seu gosto, com uma largura máxima de 200px, que irá ficar no elemento aside acima definido.
 
 ## 5. Views ⚙️
-As views são funções responsáveis por responder ao pedido (request), retornando o recurso pedido, um template HTML.
+As views são funções responsáveis por responder ao pedido (request) de um recurso (URL), retornando o recurso pedido, um template HTML eventualmente renderizado com dados e customizado. Fazem assim a interligação entre os dados e os templates, respondendo aos pedidos encaminhados via urls.
+
 1. no ficheiro `views.py` crie uma função view que renderize cada uma das páginas. Por exemplo, para renderizar a página home.html teremos a função `home_page_view`:
 
 ```python
@@ -145,9 +146,12 @@ def home_page_view(request):
 
 
 ## 6. URLS ✉️
-Existem dois ficheiros ficheiros urls. O urls.py da pasta config encaminha um pedido de um recurso para a aplicação correspondente (no nosso caso apenas temos uma aplicação, website). Vamos criar o urls.py na pasta website que mapeia, para um determinado pedido (*request*) de recurso uma função do ficheiro views.py que tratará desse pedido, preparando e devolvendo o recurso pedido.
+Existem dois ficheiros ficheiros urls. O urls.py da pasta config, responsável por encaminhar um pedido de um recurso à respetiva aplicação (no nosso caso apenas temos uma aplicação, website). Vamos criar o urls.py na pasta website. Este mapeia, para um determinado pedido (*request*) de recurso, uma função do ficheiro views.py que tratará desse pedido, preparando e devolvendo o recurso pedido.
+
 1. o config\urls.py já está configurado
-1. Na pasta website crie o ficheiro `urls.py`:
+
+3. Na pasta website crie o ficheiro `urls.py`. Exemplifica-se em baixo uma rota na lista urlpatterns, devendo incluir uma rota para cada uma das três views anteriormente criadas. 
+
 ```python
 #  hello/urls.py
 
@@ -160,12 +164,17 @@ urlpatterns = [
     path('home', views.home_page_view, name='home')
 ]
 ```
-Este irá importar o módulo views que se encontra na mesma pasta (e por isso é importado como `from . import views`). Será igualmente importada a função render. Na lista urlpatterns deverá incluir uma rota para cada uma das três views anteriormente criadas. 
+Como se vê, este módulo importa o módulo views que se encontra na mesma pasta (e por isso é importado como `from . import views`), por forma a poder falar das funções view. Importa também a função path, responsavel por mapear a rota (`home`) na função (`views.home_page_view`).
+
 
 ## 7. Hiperlinks 🔗
-1. falta especificar o conteúdo dos hiperlinks do menu, insira `href="{% url 'website:home' %}"`, onde `website` é o nome dado à app (em `app_name`) e `home` é o nome do path.
-2. Para a imagem `<img>`, antes da etiqueca inclua a etiqueta template `{% load static %}`. Na imagem, use a etiqueta template `{% static 'website\images\image.png' %}` 
+1. falta especificar o conteúdo dos hiperlinks do menu. Insira `href="{% url 'website:home' %}"`, onde `website` é o nome dado à app (em `app_name`), e `home` é o nome do path especificado em website\urls.py. 
+2. Para a imagem `<img>`, inclua antes desta a etiqueta template `{% load static %}`, para construir o URL para o path relativo. Na referencia, use a etiqueta template `{% static 'website\images\image.png' %}`, ficando da seguinte forma:
 
+```html
+{% load static %}
+<img src="{% static 'website\images\image.png' %}">
+```
 
 # 7. Ready, go! 🏁
 1. Lance a aplicação com o comando `python manage.py runserver` e verifique que consegue visualizar corretamente a aplicação que fez. 

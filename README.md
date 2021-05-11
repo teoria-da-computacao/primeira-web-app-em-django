@@ -175,6 +175,11 @@ Como se vê, este módulo importa o módulo views que se encontra na mesma pasta
 {% load static %}
 <img src="{% static 'website\images\image.png' %}">
 ```
+3. para o ficheiro base.css, devemos também incluir um link, usando o path relativo para a pasta static:
+```html
+{% load static %}
+<link rel="stylesheet" href="{% static 'website/css/base.css' %}">
+```
 
 # 7. Ready, go! 🏁
 1. Lance a aplicação com o comando `python manage.py runserver` e verifique que consegue visualizar corretamente a aplicação que fez. 

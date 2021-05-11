@@ -12,7 +12,8 @@
 * * quando necessário, guie-se pelo projeto que fizemos na aula teórica, que  está disponível no [repo GitHub](https://github.com/ULHT-PW-2020-21/pw-django-01). 
 * se tiver dúvidas, consulte os [slides](https://secure.grupolusofona.pt/ulht/moodle/pluginfile.php/800079/course/section/398731/pw-03-django-01.pptx) e a documentação do [djangoproject](https://www.djangoproject.com/)
 
-## 1. Crie um projeto e app django
+## 1. Primeiros passos 🍼
+### 1. Crie um projeto e app django
 1. Abra a linha de comandos (PowerShell ou cmd)
 1. Crie e entre na pasta lab6 `mkdir lab6; cd lab6`
 1. Crie um ambiente virtual com django `pipenv install django`
@@ -40,7 +41,7 @@ urlpatterns = [
 ]
 ```
 
-## 3. Templates
+## 3. Templates 🖺
 
 ### 3.1 Layout
 1. na pasta `website` crie a pasta `templates`, e dentro dessa a pasta `\website`, ficando com o caminho `lab6\website\templates\website`
@@ -55,7 +56,7 @@ urlpatterns = [
     2. um elemento `<nav>` três hiperlinks `<a>` para três páginas a criar, cada com a classe `class="btn btn-info"` que transforma o hiperlink num botão (ficando por exemplo `<a href="" class="btn btn-info">Home</a>)`
 
 #### main
-1. No body crie uma secção `<article class="container">` onde especifica que a largura máxima é de 800px e está centrado. O article irá ter dentro dois elementos, o `<main>` e o `<aside>`.
+1. No body crie uma secção `<article class="container">`. O article irá ter dentro dois elementos, o `<main>` e o `<aside>`.
 1. O elemento `main` tem duas classes bootstrap e um bloco que será estendido com os conteúdos das páginas do wesite. 
 ```html
 <main class="col-sm-6"> 
@@ -69,13 +70,25 @@ urlpatterns = [
 #### footer
 1. crie um elemento `<footer></footer>` com um texto simples de rodapé. 
 
+### 3.2 HTML Templates 
 
-## 4. Static
+Crie três templates HTML que estendam o layout base.html. Estes terão os conteúdos que irão aparecer no elemento main. Deverão ser de texto, duas ou tres frases basta.
+
+```html
+{% extends 'website/base.html' %}
+
+{% block main %}
+    <h3>Titulo</h3>
+    <p>texto texto texto texto texto texto texto </p>
+{% endblock %}
+```
+
+## 4. Static 🖼️
 1. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`.
 
 ### 4.1 CSS
-1. Crie a pasta `css` (ficando com o caminho `lab6\website\static\website\css` 😱), incluindo nesta o ficheiro `base.css`.
-1. configure neste a estilização do elemento footer, por forma a que fique em baixo. Poderá usar por exemplo as propriedades  
+1. Crie dentro de `website\static\website` a pasta `css` (ficando com o caminho `lab6\website\static\website\css` 😱), incluindo nesta o ficheiro `base.css`.
+1. configure neste a estilização do elemento footer, por forma a que fique em baixo. Poderá configurar desta forma:  
 ```html
 footer {
    position: fixed;
@@ -84,15 +97,21 @@ footer {
    text-align: center;
 }
 ```
-1. configure outra característica a seu gosto.
+1. configure o elemento article de forma a ficar centrado e com largura máxima de 800px
+```html
+body > article {
+    max-width: 800px;
+    margin: auto;
+}
+```
 
 ### 4.2 images
-1. Crie a pasta `images` (ficando com o caminho `lab6\website\static\website\images` 😱).
-2. Inclua uma imagem a seu gosto, que irá ficar no elemento aside acima identificado.
+1. Crie em `website\static\website` a pasta `images` (ficando com o caminho `lab6\website\static\website\images` 😱).
+2. Inclua uma imagem a seu gosto, com uma largura máxima de 200px, que irá ficar no elemento aside acima definido.
 
-### 4. Criação de páginas
-3. no ficheiro `views.py` crie uma nova função view `home_page_view` que renderize a nova página.
-4. 
+## 5. Views ⚙️
+1. no ficheiro `views.py` crie uma função view que renderize cada uma das páginas. Por exemplo, para renderizar a página home.html teremos a função `home_page_view`:
+
 ```python
 #  hello/views.py
 
@@ -102,11 +121,8 @@ def home_page_view(request):
 	return render(request, 'website\home.html')
 ```
 
-1. crie o ficheiro `website\urls.py`. 
-2. Neste importe, o módulo views que se encontra na mesma pasta (e por isso é importado como `from . import views`) 
-3. Importe a função render
-4. Crie a lista urlpatterns (à semelhança de config\urls.py) e insira uma rota para a view anteriormente criada para o URL '' da seguinte forma:
-
+## 6. URLS ✉️
+1. Na pasta website crie o ficheiro `urls.py`:
 ```python
 #  hello/urls.py
 
@@ -116,9 +132,12 @@ from . import views
 app_name = "website"
 
 urlpatterns = [
-    path('', views.home_page_view, name='home')
+    path('home', views.home_page_view, name='home')
 ]
 ```
+Este irá importar o módulo views que se encontra na mesma pasta (e por isso é importado como `from . import views`). Será igualmente importada a função render. Na lista urlpatterns deverá incluir uma rota para cada uma das três views anteriormente criadas. 
 
-1. lance a aplicação com o comando `python manage.py runserver` e verifique que consegue visualizar o template HTML home que fez. 
+
+# 7. Ready, go! 🏁
+1. Lance a aplicação com o comando `python manage.py runserver` e verifique que consegue visualizar corretamente a aplicação que fez. 
 

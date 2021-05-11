@@ -8,13 +8,16 @@
 * Exercitará a edição dos módulos urls.py, views.py e a criação de templates HTML com linguagem template.
 
 **RECOMENDAÇÕES**: 
+* leia uma vez o enunciado. É extenso, mas detalha todos os passos e fornece o código necessário, sendo rápida a sua realização.
 * Instale e use o Pycharm para editar o código de forma fácil.
-* * quando necessário, guie-se pelo projeto que fizemos na aula teórica, que  está disponível no [repo GitHub](https://github.com/ULHT-PW-2020-21/pw-django-01). 
+* quando necessário, guie-se pelo projeto que fizemos na aula teórica, que  está disponível no [repo GitHub](https://github.com/ULHT-PW-2020-21/pw-django-01). 
 * se tiver dúvidas, consulte os [slides](https://secure.grupolusofona.pt/ulht/moodle/pluginfile.php/800079/course/section/398731/pw-03-django-01.pptx) e a documentação do [djangoproject](https://www.djangoproject.com/)
 
 ## 1. Primeiros passos 👶
+Vamos nesta secção criar um projeto e aplicação django.
+
 ### 1.1. Crie um projeto e app django
-1. Abra a linha de comandos (PowerShell ou cmd)
+1. Abra a linha de comandos (PowerShell ou cmd) e execute os comandos em baixo a cinzento. 
 1. Crie e entre na pasta lab6 `mkdir lab6; cd lab6`
 1. Crie um ambiente virtual com django `pipenv install django`
 1. Active o ambiente virtual `pipenv shell`
@@ -42,8 +45,9 @@ urlpatterns = [
 ```
 
 ## 3. Templates 🖺
+Designa-se de template um ficheiro HTML retornado  ao browser por uma função view específica, eventualmente renderizado com conteúdos. Começamos assim por construir os conteúdos que teremos para retornar a um cliente. Vamos criar um template base\pai que terá o layout, os restantes consistindo em templates "filhos" que herdam e estendem a base, inserindo conteúdos neste.
 
-### 3.1 Layout
+### 3.1 Template base com layout
 1. na pasta `website` crie a pasta `templates`, e dentro dessa a pasta `\website`, ficando com o caminho `lab6\website\templates\website`
 1. Crie, na pasta `website\templates\website`, o ficheiro `base.html`, usando o snippet HTML5 sugerido pelo Pycharm. 
 1. integre no elemento `head` um link para o bootstrap, `<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">`. 
@@ -70,8 +74,7 @@ urlpatterns = [
 #### footer
 1. crie um elemento `<footer></footer>` com um texto simples de rodapé. 
 
-### 3.2 HTML Templates 
-
+### 3.2 Templates Filhos
 Crie três templates HTML que estendam o layout base.html. Estes terão os conteúdos que irão aparecer no elemento main. Deverão ser de texto, duas ou tres frases basta.
 
 ```html
@@ -84,8 +87,8 @@ Crie três templates HTML que estendam o layout base.html. Estes terão os conte
 ```
 
 ## 4. Static 🖼️
-1. Os ficheiros estáticos são imagens, CSS e scripts JavaScript
-2. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`. Esta pasta conterá uma pasta para as imagens e outra para o CSS. 
+Os ficheiros estáticos são imagens, CSS e scripts JavaScript. Estes organizam-se em pastas especificas.
+1. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`. Esta pasta conterá uma pasta para as imagens e outra para o CSS. 
 
 ### 4.1 CSS
 1. Crie dentro de `website\static\website` a pasta `css` (ficando com o caminho `lab6\website\static\website\css` 😱), incluindo nesta o ficheiro `base.css`.
@@ -111,6 +114,7 @@ body > article {
 2. Inclua uma imagem a seu gosto, com uma largura máxima de 200px, que irá ficar no elemento aside acima definido.
 
 ## 5. Views ⚙️
+As views são funções responsáveis por responder ao pedido (request), retornando o recurso pedido, um template HTML.
 1. no ficheiro `views.py` crie uma função view que renderize cada uma das páginas. Por exemplo, para renderizar a página home.html teremos a função `home_page_view`:
 
 ```python
@@ -121,8 +125,13 @@ from django.http import render
 def home_page_view(request):
 	return render(request, 'website\home.html')
 ```
+2. experimente passar como contexto a data, recorrendo ao módulo datetime (de forma semelhante à feita no projeto da aula, veja no [repo GitHub](https://github.com/ULHT-PW-2020-21/pw-django-01) no módulo views.py), de forma a que esta apareça na pagina `home`.
+3. brinque e explore a linguagem de template, com decisores if e ciclos for (veja no views do projeto, e consulte os [slides](https://secure.grupolusofona.pt/ulht/moodle/pluginfile.php/800079/course/section/398731/pw-03-django-01.pptx)). 
+
 
 ## 6. URLS ✉️
+Existem dois ficheiros ficheiros urls. O urls.py da pasta config encaminha um pedido de um recurso para a aplicação correspondente (no nosso caso apenas temos uma aplicação, website). Vamos criar o urls.py na pasta website que mapeia, para um determinado pedido (*request*) de recurso uma função do ficheiro views.py que tratará desse pedido, preparando e devolvendo o recurso pedido.
+1. o config\urls.py já está configurado
 1. Na pasta website crie o ficheiro `urls.py`:
 ```python
 #  hello/urls.py
@@ -137,6 +146,10 @@ urlpatterns = [
 ]
 ```
 Este irá importar o módulo views que se encontra na mesma pasta (e por isso é importado como `from . import views`). Será igualmente importada a função render. Na lista urlpatterns deverá incluir uma rota para cada uma das três views anteriormente criadas. 
+
+## 7. Hiperlinks 🔗
+1. falta especificar o conteúdo dos hiperlinks do menu, insira `href="{% url 'website:home' %}"`, onde `website` é o nome dado à app (em `app_name`) e `home` é o nome do path.
+2. Para a imagem `<img>`, antes da etiqueca inclua a etiqueta template `{% load static %}`. Na imagem, use a etiqueta template `{% static 'website\images\image.png' %}` 
 
 
 # 7. Ready, go! 🏁

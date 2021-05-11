@@ -1,6 +1,6 @@
 **UNIVERSIDADE LUSÓFONA DE HUMANIDADES E TECNOLOGIAS**
 
-# Programação Web - Laboratório 6: primeira web app django 🌤️
+# Programação Web - Laboratório 6: primeira web app django ⛅
 
 **OBJECTIVO**: 
 * Neste laboratório criará uma primeira aplicação django simples, para se familiarizar com os conceitos de urls, views, templates e sua linguagem. 
@@ -170,7 +170,7 @@ Este irá importar o módulo views que se encontra na mesma pasta (e por isso é
 # 7. Ready, go! 🏁
 1. Lance a aplicação com o comando `python manage.py runserver` e verifique que consegue visualizar corretamente a aplicação que fez. 
 
-# 8. GitHub e Heroku 🌤️
+# 8. GitHub e Heroku ⛅
 Execute os seguintes comandos para pôr o seu projeto e app a correr na cloud!
 1. considera-se que tem o Heroku instalado. Na consola, faça login `heroku login`
 2. Instale o servidor gunicorn	`pipenv install gunicorn`
@@ -189,4 +189,4 @@ Execute os seguintes comandos para pôr o seu projeto e app a correr na cloud!
 10. confirmamos se a app esta online `heroku open`
 
 
-*Esperamos que tenha gostado de conhecer um pouco do funcionamento do django e de ter feito uma web app que já não é estática &#127760;!*
+*Esperamos que tenha gostado de conhecer um pouco do funcionamento do django e de ter feito uma web app que já não é estática*

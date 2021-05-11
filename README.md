@@ -170,3 +170,23 @@ Este irá importar o módulo views que se encontra na mesma pasta (e por isso é
 # 7. Ready, go! 🏁
 1. Lance a aplicação com o comando `python manage.py runserver` e verifique que consegue visualizar corretamente a aplicação que fez. 
 
+# 8. GitHub e Heroku 🌥️
+Execute os seguintes comandos para pôr o seu projeto e app a correr na cloud!
+1. considera-se que tem o Heroku instalado. Na consola, faça login `heroku login`
+2. Instale o servidor gunicorn	`pipenv install gunicorn`
+3. Crie na pasta lab6 o ficheiro `Procfile` com o seguinte conteúdo (que especifica que estamos a usar Gunicorn): `web: gunicorn config.wsgi --log-file -`
+4. em config/settings.py, pôr: `ALLOWED_HOSTS = [‘*’]` 
+5. fazer push para o github:
+	```
+	git add -A
+	git commit -m "projeto django"
+	git push -u origin master
+	```
+6. criar nova app no Heroku, com nome aleatório com o comando `heroku create`
+7. indicamos para ignorar ficheiros estáticos tais como CSS e JS (os quais Heroku tenta otimizar para nós), com o comando: `heroku config:set DISABLE_COLLECTSTATIC=1`
+8. fazer push do código para o Heroku `git push heroku master`
+9. lançamos a aplicação	`heroku ps:scale web=1`
+10. confirmamos se a app esta online `heroku open`
+
+
+*Esperamos que tenha gostado de conhecer um pouco do funcionamento do django e de ter feito uma web app que já não é estática &#127760;!*

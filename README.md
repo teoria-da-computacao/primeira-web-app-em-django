@@ -75,7 +75,7 @@ O template base.html que construiremos a seguir terá a seguinte estrutura:
 
 #### main
 1. Por baixo do `<header>`, crie uma secção `<article class="container">`, com a classe Bootstrap. O article irá ter dentro dois elementos, o `<main>` e o `<aside>`.
-1. O elemento `main` tem duas classes bootstrap e um bloco que será estendido com os conteúdos das páginas do wesite. 
+1. O elemento `main` tem um classe bootstrap que ocupará 6 colunas de largura ([responsive grid](https://www.w3schools.com/css/css_rwd_grid.asp)). Contém uma etiqueta template `{% block main %}` que especifica que este template será estendido com conteúdos templates filhos. 
 ```html
 <!-- base.html -->
 ...
@@ -84,8 +84,7 @@ O template base.html que construiremos a seguir terá a seguinte estrutura:
 	{% endblock main %}
 </main>
 ```
-1. O elemento `<aside>` com a classe bootstrap que ocupará 6 colunas de largura ([responsive grid](https://www.w3schools.com/css/css_rwd_grid.asp)), `<aside class="col-sm-6">`. 
-1. Dentro deste elemento irá inserir um elemento `<img>`, sendo os detalhes dados na secção seguinte.
+1. O elemento `<aside>` terá a mesma classe `<aside class="col-sm-6">`. Dentro deste elemento deverá inserir um elemento `<img>` com uma imagem à sua escolha. A forma como o fazer será explicado mais em baixo.
 
 #### footer
 1. A seguir ao `<header>`crie um elemento `<footer></footer>`, com um texto simples de rodapé. 
@@ -180,7 +179,7 @@ Como se vê, este módulo importa o módulo views que se encontra na mesma pasta
 
 ## 7. Hiperlinks 🔗
 1. falta especificar o conteúdo dos hiperlinks do menu. Insira `href="{% url 'website:home' %}"`, onde `website` é o nome dado à app (em `app_name`), e `home` é o nome do path especificado em website\urls.py. 
-2. Para a imagem `<img>`, inclua antes desta a etiqueta template `{% load static %}`, para construir o URL para o path relativo. Na referencia, use a etiqueta template `{% static 'website\images\image.png' %}`, ficando da seguinte forma:
+2. Para a imagem `<img>` no ficheiro `base.html`, inclua antes desta a etiqueta template `{% load static %}`, para construir o URL para o path relativo. Na especificação da `src`, use a etiqueta template `{% static 'website\images\image.png' %}`, ficando da seguinte forma:
 
 ```html
 <!-- base.html -->

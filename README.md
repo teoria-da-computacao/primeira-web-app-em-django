@@ -12,8 +12,8 @@
 * * quando necessário, guie-se pelo projeto que fizemos na aula teórica, que  está disponível no [repo GitHub](https://github.com/ULHT-PW-2020-21/pw-django-01). 
 * se tiver dúvidas, consulte os [slides](https://secure.grupolusofona.pt/ulht/moodle/pluginfile.php/800079/course/section/398731/pw-03-django-01.pptx) e a documentação do [djangoproject](https://www.djangoproject.com/)
 
-## 1. Primeiros passos 🍼
-### 1. Crie um projeto e app django
+## 1. Primeiros passos 👶
+### 1.1. Crie um projeto e app django
 1. Abra a linha de comandos (PowerShell ou cmd)
 1. Crie e entre na pasta lab6 `mkdir lab6; cd lab6`
 1. Crie um ambiente virtual com django `pipenv install django`
@@ -24,7 +24,7 @@
 1. Pare o servidor com Ctrl + C
 1. Crie a aplicação website, com a instrução `python manage.py startapp website`
 
-## 2. Configure a aplicação
+### 1.2. Configure a aplicação
 1. abra a pasta com o Pycharm
 1. em config\settings.py registe a aplicação na lista INSTALLED_APPS, colocando no fim `'website'`
 1. em config\urls.py registe a rota para a nova aplicação website, inserindo na lista urlpatterns o caminho `path('', include('website.urls))` para a sua aplicação, ficando:
@@ -84,7 +84,8 @@ Crie três templates HTML que estendam o layout base.html. Estes terão os conte
 ```
 
 ## 4. Static 🖼️
-1. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`.
+1. Os ficheiros estáticos são imagens, CSS e scripts JavaScript
+2. na pasta `website` crie a pasta `static`, e dentro dessa a pasta `website`. Esta pasta conterá uma pasta para as imagens e outra para o CSS. 
 
 ### 4.1 CSS
 1. Crie dentro de `website\static\website` a pasta `css` (ficando com o caminho `lab6\website\static\website\css` 😱), incluindo nesta o ficheiro `base.css`.

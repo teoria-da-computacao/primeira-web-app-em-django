@@ -156,7 +156,7 @@ def home_page_view(request):
 
 
 ## 6. URLS ✉️
-Existem dois ficheiros ficheiros urls. O urls.py da pasta config, responsável por encaminhar um pedido de um recurso à respetiva aplicação (no nosso caso apenas temos uma aplicação, website). Vamos criar o urls.py na pasta website. Este mapeia, para um determinado pedido (*request*) de recurso, uma função do ficheiro views.py que tratará desse pedido, preparando e devolvendo o recurso pedido.
+Existem dois ficheiros ficheiros urls. O urls.py da pasta config, responsável por encaminhar um pedido de um recurso à respetiva aplicação (no nosso caso apenas temos uma aplicação, website). E também deverá existir um módulo urls.py na pasta website. Este irá mapear, para um determinado pedido (*request*) de recurso, uma função do ficheiro views.py que tratará desse pedido, preparando e devolvendo o recurso pedido num template HMTL.
 
 1. o config\urls.py já está configurado
 

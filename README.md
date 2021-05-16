@@ -19,7 +19,7 @@ Vamos nesta secção criar um projeto e aplicação django.
 ### 1.1. Crie um projeto e app django
 1. Abra a linha de comandos (PowerShell ou cmd) e execute os comandos em baixo a cinzento. 
 1. Crie e entre na pasta lab6 `mkdir lab6; cd lab6`
-1. Instale o pipenv executando `pip install pipenv`
+1. Instale o pipenv executando `pip install pipenv` ou, se tiver problemas com este comando, com `python -m pip install pipenv`
 1. Crie um ambiente virtual com django `pipenv install django`
 1. Active o ambiente virtual `pipenv shell`
 1. crie um projeto django `django-admin startproject config .`

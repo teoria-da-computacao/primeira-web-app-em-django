@@ -213,6 +213,7 @@ Como se vê, este módulo importa o módulo views que se encontra na mesma pasta
 
 # 9. GitHub e Heroku ⛅
 Execute os seguintes comandos para pôr o seu projeto e app a correr na cloud!
+0. Implemente os seguintes [passos](https://devcenter.heroku.com/articles/django-assets) para que os ficheiros estáticos fiquem acessíveis no Heroku. 
 1. considera-se que tem o Heroku instalado. Na consola, faça login `heroku login`
 2. Instale o servidor gunicorn	`pipenv install gunicorn`
 3. Crie na pasta lab6 o ficheiro `Procfile` (sem qualquer extensão!) com o seguinte conteúdo (que especifica que estamos a usar Gunicorn): `web: gunicorn config.wsgi --log-file -`

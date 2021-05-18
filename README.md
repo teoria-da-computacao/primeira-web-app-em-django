@@ -4,7 +4,7 @@
 
 **OBJECTIVO**: 
 * Neste laboratório criará uma primeira aplicação django simples, para se familiarizar com os conceitos de urls, views, templates e sua linguagem. 
-* O tópico e conteúdos do website podem ser extraídos se quiser do seu projeto ou lab5, mas não precisam ser muitos conteúdos. A ideia é trabalhar a estrutura e dinamicidade. 
+* O tópico e conteúdos do website podem ser extraídos preferencialmente do seu projeto, mas não precisam ser muitos conteúdos. A ideia é trabalhar a estrutura e dinamicidade. 
 * Exercitará a edição dos módulos urls.py, views.py e a criação de templates HTML com linguagem template.
 
 **RECOMENDAÇÕES**: 

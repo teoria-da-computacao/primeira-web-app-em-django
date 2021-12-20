@@ -1,6 +1,4 @@
-**UNIVERSIDADE LUSÓFONA DE HUMANIDADES E TECNOLOGIAS**
-
-# Programação Web - Laboratório 6: primeira web app django ⛅
+# Primeira web app django ⛅
 
 **OBJECTIVO**: 
 * Neste laboratório criará uma primeira aplicação django simples, para se familiarizar com os conceitos de urls, views, templates e sua linguagem. 
@@ -10,15 +8,15 @@
 **RECOMENDAÇÕES**: 
 * leia uma vez o enunciado. É extenso, mas detalha todos os passos e fornece o código necessário, sendo rápida a sua realização.
 * Instale e use o Pycharm para editar o código de forma fácil. O Pycharm sinaliza os erros. Veja com atenção eventuais mensagens. 
-* quando necessário, guie-se pelo projeto que fizemos na aula teórica, que  está disponível no [repo GitHub](https://github.com/ULHT-PW-2020-21/pw-django-01). 
-* se tiver dúvidas, consulte os [slides](https://secure.grupolusofona.pt/ulht/moodle/pluginfile.php/800079/course/section/398731/pw-03-django-01.pptx) e a documentação do [djangoproject](https://www.djangoproject.com/)
+* quando necessário, guie-se pelo projeto que fizemos na aula teórica. 
+* se tiver dúvidas, consulte os slides e a documentação do [djangoproject](https://www.djangoproject.com/)
 
 ## 1. Primeiros passos 👶
 Vamos nesta secção criar um projeto e aplicação django.
 
 ### 1.1. Crie um projeto e app django
 1. Abra a linha de comandos (PowerShell ou cmd) e execute os comandos em baixo a cinzento. 
-1. Crie e entre na pasta lab6 `mkdir lab6; cd lab6`
+1. Crie e entre na pasta lab6 `mkdir lab; cd lab`
 1. Instale o pipenv executando `pip install pipenv` ou, se tiver problemas com este comando, com `python -m pip install pipenv`
 1. Active o ambiente virtual `pipenv shell`
 1. Instale o django `pipenv install django`
@@ -164,8 +162,8 @@ from django.shortcuts import render
 def home_page_view(request):
 	return render(request, 'website/home.html')
 ```
-2. experimente passar como contexto a data, recorrendo ao módulo datetime (de forma semelhante à feita no projeto da aula, veja no [repo GitHub](https://github.com/ULHT-PW-2020-21/pw-django-01) no módulo views.py), de forma a que esta apareça na pagina `home`.
-3. brinque e explore a linguagem de template, com decisores if e ciclos for (veja no views do projeto, e consulte os [slides](https://secure.grupolusofona.pt/ulht/moodle/pluginfile.php/800079/course/section/398731/pw-03-django-01.pptx)). 
+2. experimente passar como contexto a data, recorrendo ao módulo datetime (de forma semelhante à feita no projeto da aula, de forma a que esta apareça na pagina `home`.
+3. brinque e explore a linguagem de template, com decisores if e ciclos for (veja no views do projeto, e consulte os slides. 
 
 
 ## 6. URLS ✉️
